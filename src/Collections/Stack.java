@@ -43,7 +43,6 @@ public class Stack {
         System.out.println(stack.size());
         System.out.println(stack.isEmpty());
 
-
         java.util.Stack<Integer> stack2 = new java.util.Stack<>();
         stack2.push(120);
         stack2.push(130);
@@ -53,9 +52,6 @@ public class Stack {
 
         System.out.println(stack.firstElement());
         System.out.println(stack.lastElement());
-
-        stack.remove(Integer.valueOf(60));
-        System.out.println(stack);
 
         stack.clear();
         System.out.println(stack);
