@@ -1,4 +1,4 @@
-package exception;
+
 //library exception extens runtime exception the others extens libraryexception
 //borrwoing an tem that does not exist itemnotfound
 //n=borrwoing an item that is already used
@@ -9,8 +9,15 @@ package exception;
 //implemeny exportreport using try with resources and bifferedwriter to write all items and their status
 //to next file.handle ipexception by wrapping it in libraryexcpetion
 
-public class LibraryException extends Exception {
+
+package exception;
+
+public class LibraryException extends RuntimeException {
     public LibraryException(String message) {
         super(message);
+    }
+
+    public LibraryException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

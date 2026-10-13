@@ -4,6 +4,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import exception.BorrowLimitExceededException;
+import exception.ItemNotAvailableException;
 public class Member {
     private String id;
     private String name;
@@ -45,9 +47,21 @@ public class Member {
         this.email = email;
     }
 
+
     public void borrowItem(LibraryItem item) {
         if (item == null) {
-            throw new IllegalArgumentException("Item cannot be null");
+            throw new IllegalArgumentException(
+                    "Item cannot be null");
+        }
+
+        if (borrowedItems.size() >= 3) {
+            throw new BorrowLimitExceededException(
+                    "Borrowing limit reached. Maximum is 3 items.");
+        }
+
+        if (!item.isAvailable()) {
+            throw new ItemNotAvailableException(
+                    "Item is already borrowed: " + item.getTitle());
         }
 
         item.borrow();
