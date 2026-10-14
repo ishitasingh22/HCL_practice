@@ -30,6 +30,11 @@ public class Main {
             public double lateFee(int overdueDays) {
                 return 0;
             }
+
+            @Override
+            public String getItemType() {
+                return "";
+            }
         });
 
         System.out.println("LIBRARY ITEMS");
