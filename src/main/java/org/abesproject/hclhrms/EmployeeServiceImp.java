@@ -6,6 +6,8 @@ import org.abesproject.hclhrms.repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceImp {
     @Autowired
@@ -20,4 +22,9 @@ public class EmployeeServiceImp {
     public Employee getEmpById(long empid) {
         return emprepo.getEmpById(empid);
     }
+
+    public String addBulk(List<Employee> bulkEmp) {
+        return emprepo.addBulk(bulkEmp);
+    }
+
 }

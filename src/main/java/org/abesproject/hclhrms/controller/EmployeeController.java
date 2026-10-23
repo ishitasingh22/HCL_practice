@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import java.util.List;
 
 @RestController
 public class EmployeeController {
@@ -24,7 +27,23 @@ public class EmployeeController {
         return employeeServiceImp.getEmp();
     }
     @GetMapping("/getempbyid")
-    public Employee getEmpById(@RequestParam long empid) {
-        return employeeServiceImp.getEmpById(empid);
+    public Employee getEmpById() {
+        return employeeServiceImp.getEmpById(2000);
     }
+
+    @GetMapping("/addbulk")
+    public String addBulk() {
+
+        List<Employee> employees = List.of(
+                new Employee(5000, "Mahi", "QA",
+                        "mahi@example.com", "C++"),
+                new Employee(9000, "Gauri", "FDE",
+                        "gauri@example.com", "Python")
+        );
+
+        return employeeServiceImp.addBulk(employees);
+    }
+
+
+
 }

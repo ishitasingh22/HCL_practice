@@ -15,6 +15,14 @@ public class EmpRepoImp implements EmployeeRepo{
         return "Employee added successfully";
     }
 
+
+    @Override
+    public String addBulk(List<Employee> bulkEmp) {
+        emplist.addAll(bulkEmp);
+        return "Bulk employees added successfully";
+    }
+
+
     @Override
     public Employee getEmp() {
         if (emplist.isEmpty()) {
