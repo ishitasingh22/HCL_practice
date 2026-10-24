@@ -9,10 +9,11 @@ import java.util.List;
 public interface EmployeeRepo {
     String addemp(Employee emp);
     String addBulk(List<Employee> bulkEmp);
-    Employee getEmp();
+    List<Employee> getEmp();
     Employee getEmpById(long empid);
     String deleteById(long empid);
-    String updateById(long emo,Employee updatedEmp);
+    String updateById(long emp, Employee updatedEmp);
+
 
 
 }

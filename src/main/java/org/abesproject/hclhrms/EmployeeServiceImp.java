@@ -16,7 +16,7 @@ public class EmployeeServiceImp {
         Employee emp1=new Employee(2000,"Ishitaa","SDE","singhishita481@gmail.com","JAVA");
         return emprepo.addemp(emp1);
     }
-    public Employee getEmp() {
+    public List<Employee> getEmp() {
         return emprepo.getEmp();
     }
     public Employee getEmpById(long empid) {
@@ -26,5 +26,11 @@ public class EmployeeServiceImp {
     public String addBulk(List<Employee> bulkEmp) {
         return emprepo.addBulk(bulkEmp);
     }
+    public String deleteById(long empid) {
+        return emprepo.deleteById(empid);
+    }
 
+    public String updateById(long empid, Employee updatedEmp) {
+        return emprepo.updateById(empid, updatedEmp);
+    }
 }

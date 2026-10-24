@@ -24,11 +24,8 @@ public class EmpRepoImp implements EmployeeRepo{
 
 
     @Override
-    public Employee getEmp() {
-        if (emplist.isEmpty()) {
-            return null;
-        }
-        return emplist.get(0);
+    public List<Employee> getEmp() {
+        return emplist;
     }
 
     @Override
@@ -38,12 +35,28 @@ public class EmpRepoImp implements EmployeeRepo{
 
     @Override
     public String deleteById(long empid) {
-        return "";
+        boolean status=false;
+        if(getEmpById(empid)!=null){
+            status=emplist.removeIf(e->e.getEmp_id()==empid);
+        }
+        if(status){
+            return "Deleted sucessfully";
+        }
+
+       return "ID not available to remove";
     }
 
     @Override
-    public String updateById(long emo, Employee updatedEmp) {
-        return "";
+    public String updateById(long empid, Employee updatedEmp) {
+        Employee existingEmp = getEmpById(empid);
+
+        if (existingEmp == null) {
+            return "Employee ID not found";
+        }
+
+        existingEmp.setEmail(updatedEmp.getEmail());
+
+        return "updated successfully";
     }
 
 }
